@@ -5,30 +5,25 @@ let maxX = canvas.width;
 let maxY = canvas.height ;
 let canvasxCenter = maxX / 2;
 let canvasyCenter = maxY / 2;
-let minMaxXY = Math.min(maxX, maxY);
-let side = 0.95 * minMaxXY;
+let side = .95 * maxY;
 
-let xA = canvasxCenter - side / 2;
-let yA = canvasyCenter - side / 2;
-let xB = canvasxCenter + side / 2;
-let yB = canvasyCenter - side / 2;
-let xC = canvasxCenter + side / 2; 
-let yC = canvasyCenter + side / 2;
-let xD = canvasxCenter - side / 2; 
-let yD = canvasyCenter + side / 2;
+let xA = canvasxCenter - side / 2, yA = canvasyCenter - side / 2;
+let xB = canvasxCenter + side / 2, yB = canvasyCenter - side / 2;
+let xC = canvasxCenter + side / 2, yC = canvasyCenter + side / 2;
+let xD = canvasxCenter - side / 2, yD = canvasyCenter + side / 2;
 
 let xA1, yA2, xB1, yB1, xC1, yC1, xD1, yD1;
 
 const p = 0.95, q = 0.05;
 
-for (let i = 0; i < 75; i++) {
+for (let i = 0; i < 50; i++) {
     ctx.beginPath();
     ctx.moveTo(iX(xA), iY(yA));
     ctx.lineTo(iX(xB), iY(yB));
     ctx.lineTo(iX(xC), iY(yC));
     ctx.lineTo(iX(xD), iY(yD));
     ctx.closePath();
-    ctx.strokeStyle = `rgb(${255}, ${255}, ${255})`; 
+    ctx.strokeStyle = 'black'; 
     ctx.stroke();
 
     xA1 = p * xA + q * xB;
