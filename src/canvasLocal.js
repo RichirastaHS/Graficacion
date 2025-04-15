@@ -26,7 +26,6 @@ export class CanvasLocal {
         r = Math.round(Math.min(255, Math.max(0, r + (r * matiz / 100))));
         g = Math.round(Math.min(255, Math.max(0, g + (g * matiz / 100))));
         b = Math.round(Math.min(255, Math.max(0, b + (b * matiz / 100))));
-        console.log("#" + this.RGBaHex(r, g, b));
         return `#${this.RGBaHex(r, g, b)}`;
     }
     RGBaHex(r, g, b) {
@@ -80,9 +79,11 @@ export class CanvasLocal {
         //Si la barra es muy alta, se cambia el color de la cara de la parte superior por el color de la barra
         if (y + alt == this.rHeight - 2)
             this.topdelabarra = this.Color(colorS, -20);
-        //Dibujar parte inferior de la barra
-        this.drawRmboide(this.iX(x), this.iY(0), this.iX(x - 0.5), this.iY(0.25), this.iX(x - 0.5), this.iY(y + alt), this.iX(x), this.iY(y + alt - .25), this.Color(colorS, -20));
-        this.drawRmboide(this.iX(x), this.iY(0), this.iX(x + 0.5), this.iY(0.25), this.iX(x + 0.5), this.iY(y + alt), this.iX(x), this.iY(y + alt - .25), colorS);
+        //Dibujarf parte inferior de la barra si el valor es es 0 se omite esta parte para que no se vea la linea de color
+        if (y !== 0) {
+            this.drawRmboide(this.iX(x), this.iY(0), this.iX(x - 0.5), this.iY(0.25), this.iX(x - 0.5), this.iY(y + alt), this.iX(x), this.iY(y + alt - .25), this.Color(colorS, -20));
+            this.drawRmboide(this.iX(x), this.iY(0), this.iX(x + 0.5), this.iY(0.25), this.iX(x + 0.5), this.iY(y + alt), this.iX(x), this.iY(y + alt - .25), colorS);
+        }
         //Partes "Grises" de la barra
         this.graphics.strokeStyle = this.Color(this.topdelabarra.toString(), -20);
         this.drawRmboide(this.iX(x), this.iY(y + alt - 0.25), this.iX(x - 0.5), this.iY(y + alt), this.iX(x - 0.5), this.iY(this.rHeight - 2), this.iX(x), this.iY(this.rHeight - 2.25), this.Color(this.topdelabarra.toString(), -20));
@@ -92,16 +93,22 @@ export class CanvasLocal {
         this.graphics.strokeStyle = this.Color(this.topdelabarra.toString(), -5);
         this.drawRmboide(this.iX(x), this.iY(this.rHeight - 1.75), this.iX(x + 0.5), this.iY(this.rHeight - 2), this.iX(x), this.iY(this.rHeight - 2.25), this.iX(x - 0.5), this.iY(this.rHeight - 2), this.Color(this.topdelabarra.toString(), -5));
     }
-    paint() {
-        let h = [25, 50, 75, 99, 100, 82];
+    paint(dataBarra) {
+        console.log(dataBarra);
+        let h = dataBarra.map((dataBarra) => dataBarra.barraPorcentaje);
+        let colors = dataBarra.map((dataBarra) => dataBarra.barraColor);
         let maxEsc;
-        let colors = ['#1CACE0', '#ADC910', '#E91E79', '#F39121', '#F49390', '#C45AB3'];
         maxEsc = this.maxH(h);
         let i = 0;
-        for (let x = 0; x < 8; x += (8 / (h.length * 1))) {
+        for (let x = 0, y = 0; x < 8; x += (8 / (h.length))) {
             let color = colors[i % colors.length];
-            if (i < h.length)
+            if (h[y] !== 0) {
                 this.barra(x, 0, h[i++] * (this.rHeight - 2) / maxEsc, color);
+            }
+            else {
+                this.barra(x, 0, 0, color);
+            }
+            y++;
         }
         i = 0;
         for (let x = 0; x < 8; x += (8 / (h.length * 1))) {

@@ -47,8 +47,23 @@
         <div class="card-header">
           Canvas de vizualizaion
         </div>
-        <div class="chart card-img-bottom">
-            <canvas id="circlechart" width="640" height="480"></canvas>
+        <div class="card-body">
+          <form id="formulario" class="form">
+            <p>Selecciona un <strong>color</strong> y <strong>porcentaje</strong></p>
+            <div id="fieldset-container">
+              <fieldset>
+                <input type="color" id="color-0" class="form-control" />
+                <input type="number" id="porcentaje-0" placeholder="%" max="100" min="0" class="form-control" value="0" />
+              </fieldset>              
+            </div>
+            <div>
+              <button type="button" id="agregar" class="btn-agregar">Agregar</button>
+              <button type="submit" class="btn-guardar">Guardar</button>
+            </div>
+          </form>
+          <div class="chart card-img-bottom">
+              <canvas id="circlechart" width="640" height="480"></canvas>
+          </div>
         </div>
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
