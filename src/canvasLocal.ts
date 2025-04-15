@@ -107,10 +107,10 @@ export class CanvasLocal {
     this.topdelabarra = "#FDF0D5";
     //Si la barra es muy alta, se cambia el color de la cara de la parte superior por el color de la barra
     if(y+alt == this.rHeight-2)
-      this.topdelabarra = this.Color(colorS, -20);
-
-    //Dibujarf parte inferior de la barra si el valor es es 0 se omite esta parte para que no se vea la linea de color
-    if(y!==0){
+    this.topdelabarra = this.Color(colorS, -20);
+    
+    console.log("y="+y);
+    if(alt !== 0){
       this.drawRmboide(
         this.iX(x), this.iY(0),   
         this.iX(x-0.5), this.iY(0.25), 
@@ -126,6 +126,8 @@ export class CanvasLocal {
         colorS
       );
     }
+
+    
     //Partes "Grises" de la barra
     this.graphics.strokeStyle = this.Color(this.topdelabarra.toString(), -20);
     this.drawRmboide(
@@ -158,18 +160,20 @@ export class CanvasLocal {
 
 
   paint(dataBarra: PC[]) {
-    console.log(dataBarra);
     let h: number[] = dataBarra.map((dataBarra) => dataBarra.barraPorcentaje);
     let colors: string[]= dataBarra.map((dataBarra) => dataBarra.barraColor);
     let maxEsc: number;
     maxEsc = this.maxH(h);
     let i=0;
+
     for(let x= 0, y=0; x < 8; x+=(8/(h.length)) ){
       let color= colors[i%colors.length];
-      if(h[y]!==0){
-        this.barra(x,0, h[i++]*(this.rHeight-2)/maxEsc, color);
-      }else{
-        this.barra(x,0, 0, color);
+      if(i<h.length){
+        if(h[y]!==0){
+          this.barra(x,0, h[y]*(this.rHeight-2)/maxEsc, color);
+        }else{
+          this.barra(x,0, 0, color);
+        }
       }
       y++;
     }

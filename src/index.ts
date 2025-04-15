@@ -52,7 +52,6 @@ form.addEventListener('submit', (e) => {
   for (let j = 0; j < i; j++) {
     const colorInput = form.querySelector(`#color-${j}`) as HTMLInputElement;
     const numberInput = form.querySelector(`#porcentaje-${j}`) as HTMLInputElement;
-    console.log(colorInput.value, numberInput.value);
     const pc: PC = {
       barraColor: colorInput.value,
       barraPorcentaje: parseFloat(numberInput.value)
