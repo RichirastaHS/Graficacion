@@ -5,3 +5,91 @@
   #footer a{
     color: #FFFFFF;
   }
+
+  form{
+    margin : 20px auto;
+  }
+
+  input[type="text"]{
+    width: 20em;
+    padding: 0 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-style: italic;
+    color: #5c5f63;
+  }
+
+  input:focus{
+    outline: none;
+    border-bottom: 1px solid #007BFF;
+  }
+  button{
+    background: none;
+    color: rgb(11, 47, 247);
+    border:  none;
+  }
+
+  .xray{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: relative;
+    color:#BF1363;
+    font-weight: 700;
+    text-align: left;
+    svg{
+      color: #982DF7;
+    }
+  }
+
+  .xray:hover{
+    color: #F39237;
+    svg{
+      color: #58A4B0;
+    }
+    .post{
+      animation: none;
+    }
+  }
+
+  .post{
+    position: absolute;
+    top: -10px; 
+    font-weight: 900; 
+    left: -25px;
+    transform: rotate(340deg);
+    animation: wiggle 20s ease-in-out infinite;
+    z-index: 3;
+  }
+
+  .xray{
+    svg{
+      height: 100%;
+    } 
+  }
+
+  @keyframes wiggle {
+    0% {
+      transform: rotate(340deg) scale(1);
+      color: inherit;
+    }
+    20% {
+      transform: rotate(343deg) scale(1.1);
+      color: #0E79B2;
+    }
+    40% {
+      transform: rotate(330deg) scale(1.1);
+      color: #F39237;
+    }
+    100% {
+      transform: rotate(340deg) scale(1);
+      color: inherit;
+    }
+  }
+  .dsd{
+    color: #00ffb370;
+    colo: #ff5d73b2;
+  }
