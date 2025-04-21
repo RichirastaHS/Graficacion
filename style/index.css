@@ -89,7 +89,54 @@
       color: inherit;
     }
   }
-  .dsd{
-    color: #00ffb370;
-    colo: #ff5d73b2;
+
+  .card-body{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    margin: 0 auto; 
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; 
   }
+
+  section{
+    display: flex;
+    gap: 5px;
+    h4{
+      font-size: 1em;
+    }
+  }
+
+  .qr-color-container{
+    width: 20px; 
+    height: 20px;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    border: rgb(166, 172, 179) solid 1px;
+  }
+
+  .marcadoresdeposicion{
+    background-color: #E8314F; 
+  }
+  .separadores{
+    background-color: #21FA90;
+  }
+  .patrondetemporizacion{
+    background-color: #00ccff;
+  }
+  .patrondealineacion{
+    background-color: #19dbb1; 
+  }
+  .franjasdeformato{
+    background-color: #FFC857;
+  }
+  .formatoinformacion{
+    background-color: #FD7E2E;
+  }
+  .numcaracteres{
+    background-color: rgb(253, 243, 225);
+  }
+  .contenido{
+    background-color: #af3b6d;
+  }
+
+

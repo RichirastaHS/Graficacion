@@ -44,15 +44,11 @@ export class CanvasLocal {
     this.mcxray(19, 19, "#F3EFE0", 5); 
     this.mcxray(20, 20, "#332C23", 3);   
   }
-
   patronAlineacion(cx: number, cy: number, color: string) {
     this.mcxray(16, 4, "#332C23", 5); 
     this.mcxray(17, 5, "#F3EFE0", 3); 
     this.mcxray(18, 6, "#332C23", 1);   
   }
-
-
-
   patronTemporizacionV(x: number, y: number, color: string) {
     for(let i = 0; i < 9; i++) {
       this.graphics.fillStyle = i%2 === 0 ? color : "#F3EFE0";
@@ -331,7 +327,7 @@ buttonVerAnatomia(){
    this.marcadoresPosicion(0, 18, "#32292f");
    this.marcadoresPosicion(18, 18, "#32292f");
    this.marcadoresPosicion(0, 0, "#32292f");
-   //Patropn de cuadrad mas peuqueño de alineacion
+   //Patron de cuadrado mas pequeño de alineacion
    this.patronAlineacion(18, 6, "#32292f");
   //Patrones de temporizacion
    this.patronTemporizacionV(6, 8, "#32292f");

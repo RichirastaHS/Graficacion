@@ -276,7 +276,7 @@ export class CanvasLocal {
         this.marcadoresPosicion(0, 18, "#32292f");
         this.marcadoresPosicion(18, 18, "#32292f");
         this.marcadoresPosicion(0, 0, "#32292f");
-        //Patropn de cuadrad mas peuqueño de alineacion
+        //Patron de cuadrado mas pequeño de alineacion
         this.patronAlineacion(18, 6, "#32292f");
         //Patrones de temporizacion
         this.patronTemporizacionV(6, 8, "#32292f");
