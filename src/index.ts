@@ -59,5 +59,6 @@ form.addEventListener('submit', (e) => {
     dataBarra.push(pc);
   }
   graphics.clearRect(0, 0, canvas.width, canvas.height);
+  console.log(dataBarra);
   miCanvas.paint(dataBarra);
 });

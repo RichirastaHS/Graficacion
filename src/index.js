@@ -40,7 +40,6 @@ form.addEventListener('submit', (e) => {
     for (let j = 0; j < i; j++) {
         const colorInput = form.querySelector(`#color-${j}`);
         const numberInput = form.querySelector(`#porcentaje-${j}`);
-        console.log(colorInput.value, numberInput.value);
         const pc = {
             barraColor: colorInput.value,
             barraPorcentaje: parseFloat(numberInput.value)
@@ -48,5 +47,6 @@ form.addEventListener('submit', (e) => {
         dataBarra.push(pc);
     }
     graphics.clearRect(0, 0, canvas.width, canvas.height);
+    console.log(dataBarra);
     miCanvas.paint(dataBarra);
 });

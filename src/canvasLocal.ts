@@ -167,7 +167,7 @@ export class CanvasLocal {
     let i=0;
 
     for(let x= 0, y=0; x < 8; x+=(8/(h.length)) ){
-      let color= colors[i%colors.length];
+      let color= colors[y];
       if(i<h.length){
         if(h[y]!==0){
           this.barra(x,0, h[y]*(this.rHeight-2)/maxEsc, color);
